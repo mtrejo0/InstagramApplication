@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText etUsernmae;
     private EditText etPassword;
+    private Button btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         etPassword = findViewById(R.id.etPassword);
         etUsernmae = findViewById(R.id.etUsername);
+        btnSignUp = findViewById(R.id.btnSignUp);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,10 +41,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent i = new Intent(MainActivity.this,SignUpActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     private void login(String username, String password)
     {
+        Log.d("MainActivity","Login attempted");
+
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
