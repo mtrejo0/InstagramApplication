@@ -1,6 +1,7 @@
 package com.example.myapplication.models;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
@@ -48,10 +49,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         Post post = mPosts.get(i);
         viewHolder.tvDescription.setText(post.getDescription());
 
-
-
+        viewHolder.tvUser.setText(post.getUser().getUsername());
 
         ParseFile parseFile = post.getImage();
+
 
         parseFile.getDataInBackground(new GetDataCallback() {
             @Override
@@ -59,6 +60,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 if( e== null) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
                     viewHolder.ivImage.setImageBitmap(bmp);
+
+
                 }
                 else
                 {
@@ -67,7 +70,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             }
         });
 
-
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent i = new Intent(context, DetailsActivity.class);
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -78,12 +87,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public ImageView ivImage;
         public TextView tvDescription;
+        public TextView tvUser;
 
         public ViewHolder(View itemView)
         {
             super(itemView);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            tvUser = itemView.findViewById(R.id.tvUser);
         }
 
     }

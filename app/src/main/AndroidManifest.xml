@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MakePostActvity"></activity>
+        <activity android:name=".models.DetailsActivity"></activity>
+        <activity android:name=".MakePostActvity" />
         <activity android:name=".SignUpActivity" />
         <activity
             android:name=".HomeActivity"
