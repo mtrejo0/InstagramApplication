@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,13 +25,15 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-    private ImageButton btnRefresh;
     private ImageButton btnCreate;
     private ImageButton btnLock;
 
     PostAdapter postAdapter;
     ArrayList<Post> posts;
     RecyclerView rvPosts;
+
+    private SwipeRefreshLayout swipeContainer;
+
 
 
     @Override
@@ -40,7 +43,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
         btnCreate = findViewById(R.id.btnCreate);
-        btnRefresh = findViewById(R.id.btnRefresh);
         btnLock = findViewById(R.id.btnLock);
 
         rvPosts = findViewById(R.id.rvPosts);
@@ -60,13 +62,27 @@ public class HomeActivity extends AppCompatActivity {
         rvPosts.addItemDecoration(dividerItemDecoration);
 
 
-
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
+        swipeContainer =  findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View v) {
-                 reloadTopPosts();
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                reloadTopPosts();
+
             }
         });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
+
+
+
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +131,8 @@ public class HomeActivity extends AppCompatActivity {
                         posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);
                     }
+                    // end refresh icon
+                    swipeContainer.setRefreshing(false);
                 }
                 else
                 {

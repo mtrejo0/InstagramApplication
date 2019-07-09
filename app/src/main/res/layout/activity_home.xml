@@ -6,27 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <!--<Button-->
-    <!--android:id="@+id/btnCreate"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginStart="112dp"-->
-    <!--android:layout_marginLeft="112dp"-->
-    <!--android:layout_marginBottom="48dp"-->
-    <!--android:text="Create"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent" />-->
-
-    <!--<Button-->
-    <!--android:id="@+id/btnRefresh"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginEnd="84dp"-->
-    <!--android:layout_marginRight="84dp"-->
-    <!--android:layout_marginBottom="48dp"-->
-    <!--android:text="Refresh"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintEnd_toEndOf="parent" />-->
 
     <ImageButton
         android:id="@+id/btnLock"
@@ -35,60 +14,57 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
 
-        android:layout_marginTop="13dp"
         android:layout_marginBottom="16dp"
         android:background="#FAFAFA"
         android:src="@drawable/ic_lock"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvPosts" />
-
-    <ImageButton
-        android:id="@+id/btnRefresh"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="#FAFAFA"
-
-        android:src="@drawable/ic_refresh2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvPosts" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btnCreate"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
 
-        android:layout_marginTop="13dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="#FAFAFA"
         android:src="@drawable/ic_capture"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnLock"
-        app:layout_constraintTop_toBottomOf="@+id/rvPosts" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvPosts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipeContainer"
+        android:layout_width="415dp"
+        android:layout_height="657dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btnCreate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-2dp">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvPosts"
+            android:layout_width="410dp"
+            android:layout_height="734dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/swipeContainer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
 
 
 
