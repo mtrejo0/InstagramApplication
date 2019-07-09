@@ -15,7 +15,7 @@ import com.parse.ParseUser;
 public class MainActivity extends AppCompatActivity {
 
     private Button btnLogin;
-    private EditText etUsernmae;
+    private EditText etUsername;
     private EditText etPassword;
     private Button btnSignUp;
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.btnLogin);
         etPassword = findViewById(R.id.etPassword);
-        etUsernmae = findViewById(R.id.etUsername);
+        etUsername = findViewById(R.id.etUsername);
         btnSignUp = findViewById(R.id.btnSignUp);
 
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String username = etUsernmae.getText().toString();
+                final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
 
                 login(username,password);
