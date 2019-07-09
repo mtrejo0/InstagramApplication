@@ -1,11 +1,13 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.myapplication.models.Post;
 import com.parse.FindCallback;
@@ -26,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button btnRefresh;
     private Button btnCreate;
     private static final String imagePath = "res/raw/moises.png";
+    private ImageButton btnLock;
 
 
     @Override
@@ -36,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         etDescription = findViewById(R.id.etDescription);
         btnCreate = findViewById(R.id.btnCreate);
         btnRefresh = findViewById(R.id.btnRefresh);
+        btnLock = findViewById(R.id.btnLock);
 
 
         btnRefresh.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +65,17 @@ public class HomeActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+            }
+        });
+
+        btnLock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOut();
+                final Intent i = new Intent(HomeActivity.this,MainActivity.class);
+                startActivity(i);
+                finish();
 
             }
         });
