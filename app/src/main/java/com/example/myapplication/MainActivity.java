@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnSignUp);
 
 
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            startHomePage();
+        }
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,14 +47,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final Intent i = new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(i);
             }
         });
 
+    }
+
+
+    private void startHomePage()
+    {
+        final Intent i = new Intent(MainActivity.this,HomeActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void login(String username, String password)
@@ -61,9 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 if(e == null)
                 {
                     Log.d("LoginActivity","Login successful!");
-                    final Intent i = new Intent(MainActivity.this,HomeActivity.class);
-                    startActivity(i);
-                    finish();
+                    startHomePage();
                 }
                 else
                 {
