@@ -47,15 +47,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
-
                 final Intent i = new Intent(HomeActivity.this,MakePostActvity.class);
+
                 startActivity(i);
-
-
-
-
 
             }
         });

@@ -60,7 +60,9 @@ public class MakePostActvity extends AppCompatActivity {
 
                 ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
 
-//                createPost(etDescription.getText().toString(),file,user);
+                createPost(etDescription.getText().toString(),file,ParseUser.getCurrentUser());
+                finish();
+                
             }
         });
 
