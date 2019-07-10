@@ -65,11 +65,11 @@ public class MakePostActvity extends AppCompatActivity {
 
                 ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
 
-                createPost(etDescription.getText().toString(),file,ParseUser.getCurrentUser());
-
+                Post newPost = createPost(etDescription.getText().toString(),file,ParseUser.getCurrentUser());
 
                 // new intent to return
                 Intent i = new Intent();
+//                i.putExtra(Post.class.getSimpleName(), Parcels.wrap(newPost));
 
                 setResult(RESULT_OK,i);
                 finish();
@@ -122,7 +122,7 @@ public class MakePostActvity extends AppCompatActivity {
     }
 
 
-    private void createPost(String description, ParseFile imageFile, ParseUser user)
+    private Post createPost(String description, ParseFile imageFile, ParseUser user)
     {
         final Post newPost = new Post();
         newPost.setDescription(description);
@@ -145,6 +145,8 @@ public class MakePostActvity extends AppCompatActivity {
                 }
             }
         });
+
+        return newPost;
 
     }
 
@@ -195,14 +197,15 @@ public class MakePostActvity extends AppCompatActivity {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 // by this point we have the camera photo on disk
-                Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
+
+                Bitmap rotated = rotateBitmapOrientation(photoFile.getAbsolutePath());
+
                 // RESIZE BITMAP, see section below
                 // Load the taken image into a preview
                 ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
                 Toast.makeText(this, "Picture was taken!", Toast.LENGTH_SHORT).show();
 
-                ivPreview.setImageBitmap(takenImage);
-                ivPreview.setRotation(90);
+                ivPreview.setImageBitmap(rotated);
 
 
 

@@ -99,8 +99,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 final Intent i = new Intent(HomeActivity.this,MakePostActvity.class);
 
-
-
+                // display the activity
                 startActivityForResult(i,100);
 
             }
@@ -123,7 +122,17 @@ public class HomeActivity extends AppCompatActivity {
     // handle the results from edit activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        reloadTopPosts();
+
+        if(requestCode == 100 && resultCode == RESULT_OK)
+        {
+
+//            final Post post = Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
+//            posts.add(0, post);
+//            // notify adapter and scroll up
+//            postAdapter.notifyItemInserted(0);
+//            rvPosts.scrollToPosition(0);
+            reloadTopPosts();
+        }
 
     }
 
@@ -135,11 +144,14 @@ public class HomeActivity extends AppCompatActivity {
         final Post.Query postQuery = new Post.Query();
         postQuery.getTop().withUser();
 
+
         posts.clear();
         postAdapter.notifyDataSetChanged();
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
+
+
                 if(e==null)
                 {
                     for(int i = 0; i < objects.size();i++)
@@ -158,6 +170,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
 

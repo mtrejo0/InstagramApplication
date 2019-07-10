@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -54,6 +56,16 @@ public class SignUpActivity extends AppCompatActivity {
                 });
             }
         });
+
+        ConstraintLayout background = findViewById(R.id.background);
+        // onCreate
+        AnimationDrawable animationDrawable = (AnimationDrawable) background.getBackground();
+        animationDrawable.setEnterFadeDuration(5000);
+        animationDrawable.setExitFadeDuration(2000);
+        // onResume
+        animationDrawable.start();
+
+        getSupportActionBar();
 
 
     }
