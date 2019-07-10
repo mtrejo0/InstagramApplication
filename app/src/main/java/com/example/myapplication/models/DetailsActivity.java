@@ -1,16 +1,12 @@
 package com.example.myapplication.models;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.parse.GetDataCallback;
-import com.parse.ParseException;
-import com.parse.ParseFile;
 
 import org.parceler.Parcels;
 
@@ -19,6 +15,7 @@ public class DetailsActivity extends AppCompatActivity {
     public ImageView ivImage;
     public TextView tvDescription;
     public TextView tvUser;
+    public TextView tvUserTop;
 
 
     @Override
@@ -30,33 +27,26 @@ public class DetailsActivity extends AppCompatActivity {
         ivImage = findViewById(R.id.ivImage);
         tvDescription = findViewById(R.id.tvDescription);
         tvUser = findViewById(R.id.tvUser);
+        tvUserTop =  findViewById(R.id.tvUserTop);
 
 
         final Post post = Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
+
+
 
 
         tvDescription.setText(post.getDescription());
 
         tvUser.setText(post.getUser().getUsername());
 
-        ParseFile parseFile = post.getImage();
+        tvUserTop.setText(post.getUser().getUsername());
 
 
-        parseFile.getDataInBackground(new GetDataCallback() {
-            @Override
-            public void done(byte[] data, ParseException e) {
-                if( e == null) {
-                    Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
-                    ivImage.setImageBitmap(bmp);
+        String imageUrl = post.getImage().getUrl();
+        Glide.with(this)
+                .load(imageUrl)
+                .into(ivImage);
 
-
-                }
-                else
-                {
-                    e.printStackTrace();
-                }
-            }
-        });
 
 
 
