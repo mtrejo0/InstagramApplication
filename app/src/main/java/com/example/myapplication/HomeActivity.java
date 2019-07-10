@@ -2,15 +2,16 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
+import android.view.MenuItem;
 
 import com.example.myapplication.models.Post;
 import com.example.myapplication.models.PostAdapter;
@@ -26,8 +27,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-    private ImageButton btnCreate;
-    private ImageButton btnLock;
+//    private ImageButton btnCreate;
+//    private ImageButton btnLock;
 
     PostAdapter postAdapter;
     ArrayList<Post> posts;
@@ -43,8 +44,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-        btnCreate = findViewById(R.id.btnCreate);
-        btnLock = findViewById(R.id.btnLock);
+//        btnCreate = findViewById(R.id.btnCreate);
+//        btnLock = findViewById(R.id.btnLock);
 
         rvPosts = findViewById(R.id.rvPosts);
 
@@ -93,26 +94,47 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        btnCreate.setOnClickListener(new View.OnClickListener() {
+//        btnCreate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//
+//            }
+//        });
+//
+//        btnLock.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//            }
+//        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                final Intent i = new Intent(HomeActivity.this,MakePostActvity.class);
+                Intent i;
+                switch (item.getItemId()) {
+                    case R.id.btnLock:
+                        ParseUser.logOut();
+                        i = new Intent(HomeActivity.this,MainActivity.class);
+                        startActivity(i);
+                        finish();
+                        return true;
+                    case R.id.btnCreate:
+                        i = new Intent(HomeActivity.this,MakePostActvity.class);
 
-                // display the activity
-                startActivityForResult(i,100);
+                        // display the activity
+                        startActivityForResult(i,100);
 
-            }
-        });
+                        return true;
 
-        btnLock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ParseUser.logOut();
-                final Intent i = new Intent(HomeActivity.this,MainActivity.class);
-                startActivity(i);
-                finish();
-
+                    default: return true;
+                }
             }
         });
 
@@ -125,7 +147,7 @@ public class HomeActivity extends AppCompatActivity {
 
         if(requestCode == 100 && resultCode == RESULT_OK)
         {
-
+            //TODO fix this reload when image is posted
 //            final Post post = Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
 //            posts.add(0, post);
 //            // notify adapter and scroll up
