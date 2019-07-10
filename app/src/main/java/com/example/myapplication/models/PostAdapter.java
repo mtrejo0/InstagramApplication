@@ -2,8 +2,6 @@ package com.example.myapplication.models;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,10 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.parse.GetDataCallback;
-import com.parse.ParseException;
-import com.parse.ParseFile;
 
 import org.parceler.Parcels;
 
@@ -53,24 +49,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         viewHolder.tvUser.setText(post.getUser().getUsername());
 
-        ParseFile parseFile = post.getImage();
+        viewHolder.tvUserTop.setText(post.getUser().getUsername());
 
 
-        parseFile.getDataInBackground(new GetDataCallback() {
-            @Override
-            public void done(byte[] data, ParseException e) {
-                if( e == null) {
-                    Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
-                    viewHolder.ivImage.setImageBitmap(bmp);
-
-
-                }
-                else
-                {
-                    e.printStackTrace();
-                }
-            }
-        });
+        String imageUrl= post.getImage().getUrl();
+        Glide.with(context)
+                .load(imageUrl)
+                .into(viewHolder.ivImage);
 
 
         viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -95,6 +80,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public ImageView ivImage;
         public TextView tvDescription;
         public TextView tvUser;
+        public TextView tvUserTop;
 
         public ViewHolder(View itemView)
         {
@@ -102,6 +88,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvUser = itemView.findViewById(R.id.tvUser);
+            tvUserTop = itemView.findViewById(R.id.tvUserTop);
         }
 
     }
