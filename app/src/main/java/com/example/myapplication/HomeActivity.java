@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -51,7 +52,14 @@ public class HomeActivity extends AppCompatActivity {
 
         postAdapter = new PostAdapter(posts);
 
-        rvPosts.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager lin = new LinearLayoutManager(this);
+
+
+        lin.setReverseLayout(true);
+        lin.setStackFromEnd(true);
+
+        rvPosts.setLayoutManager(lin);
+
 
         rvPosts.setAdapter(postAdapter);
 
@@ -84,13 +92,16 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 final Intent i = new Intent(HomeActivity.this,MakePostActvity.class);
 
-                startActivity(i);
+
+
+                startActivityForResult(i,100);
 
             }
         });
@@ -106,6 +117,13 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    // handle the results from edit activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        reloadTopPosts();
 
     }
 

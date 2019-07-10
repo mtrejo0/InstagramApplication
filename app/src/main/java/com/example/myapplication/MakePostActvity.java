@@ -66,6 +66,12 @@ public class MakePostActvity extends AppCompatActivity {
                 ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
 
                 createPost(etDescription.getText().toString(),file,ParseUser.getCurrentUser());
+
+
+                // new intent to return
+                Intent i = new Intent();
+
+                setResult(RESULT_OK,i);
                 finish();
 
             }
