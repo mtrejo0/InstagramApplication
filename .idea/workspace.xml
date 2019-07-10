@@ -6,34 +6,13 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OK" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Activity" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7bb563-9a4c-4803-9d91-22f077884700" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-anydpi/ic_search.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_add_photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_home_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_home_button_un.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_add_photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_home_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_home_button_un.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_add_photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_home_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_home_button_un.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_add_photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_home_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_home_button_un.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_add_photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_home_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_home_button_un.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_bottom_navigation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -41,14 +20,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_second.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_post_actvity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_make_post_actvity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +54,21 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
+              <folding>
+                <element signature="e#1825#2365#0" expanded="true" />
+                <element signature="e#2364#2365#0" expanded="true" />
+                <element signature="e#4648#5049#0" expanded="true" />
+                <element signature="e#5048#5049#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/SignUpActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -100,17 +88,17 @@
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
-              <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="76" selection-end-column="55" />
+              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="76" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_make_post_actvity.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="73" column="35" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
+            <state relative-caret-position="600">
+              <caret line="69" column="59" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -139,6 +127,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Primary</find>
+      <find>createPost</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,7 +149,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/PostAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_post.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/gradient_1.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/gradient_2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/gradient_3.xml" />
@@ -179,6 +167,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_make_post_actvity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java" />
       </list>
     </option>
   </component>
@@ -246,7 +235,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="Pixel_API_28" />
+    <property name="device.picker.selection" value="94QX1ZMP7" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -358,6 +347,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" />
       <window_info id="Image Layers" order="1" />
@@ -366,16 +356,16 @@
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Resources Explorer" order="6" weight="0.32844934" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.15201466" />
+      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.15201466" />
       <window_info id="Captures" order="8" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="0" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993895" weight="0.26938775" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32959184" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2489796" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.2489796" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993895" weight="0.32959184" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50061053" side_tool="true" weight="0.30714285" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.16122448" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.49489796" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Run" order="9" weight="0.10510204" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
@@ -385,6 +375,24 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
     </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java</url>
+          <line>63</line>
+          <properties method="onClick" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-28/java/io/File.java">
@@ -568,19 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#1825#2270#0" expanded="true" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#4553#4954#0" expanded="true" />
-            <element signature="e#4953#4954#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_post.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -710,7 +705,7 @@
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
-          <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="76" selection-end-column="55" />
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="76" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -729,8 +724,21 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_make_post_actvity.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="73" column="35" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
+        <state relative-caret-position="600">
+          <caret line="69" column="59" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#1825#2365#0" expanded="true" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#4648#5049#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
