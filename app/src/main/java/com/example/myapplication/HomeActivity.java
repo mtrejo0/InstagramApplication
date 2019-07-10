@@ -20,6 +20,7 @@ import com.example.myapplication.models.Post;
 import com.example.myapplication.models.PostAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,18 +96,18 @@ public class HomeActivity extends AppCompatActivity {
                 Intent i;
                 switch (item.getItemId()) {
                     case R.id.btnLock:
-//                        ParseUser.logOut();
-//                        i = new Intent(HomeActivity.this,MainActivity.class);
-//                        startActivity(i);
-//                        finish();
-                        fragment = new ComposeFragment();
+                        ParseUser.logOut();
+                        i = new Intent(HomeActivity.this,MainActivity.class);
+                        startActivity(i);
+                        finish();
+//                        fragment = new ComposeFragment();
                         break;
                     case R.id.btnCreate:
 
-//                        i = new Intent(HomeActivity.this,MakePostActvity.class);
-//
-//                        // display the activity
-//                        startActivityForResult(i,100);
+                        i = new Intent(HomeActivity.this,MakePostActvity.class);
+
+                        // display the activity
+                        startActivityForResult(i,100);
                         fragment = new ComposeFragment();
 
                         break;
@@ -120,12 +121,12 @@ public class HomeActivity extends AppCompatActivity {
 
                     default: return true;
                 }
-                fragmentManager.beginTransaction().replace(R.id.flContainer,fragment).commit();
+//                fragmentManager.beginTransaction().replace(R.id.flContainer,fragment).commit();
                         return true;
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.btnCreate);
+//        bottomNavigationView.setSelectedItemId(R.id.btnCreate);
 
 
 
