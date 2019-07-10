@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+//        btnLogin.setBackground(new ColorDrawable(Color.parseColor("#9C27B0")));
+//        btnSignUp.setBackground(new ColorDrawable(Color.parseColor("#9C27B0")));
 
 
         ConstraintLayout background = findViewById(R.id.background);
