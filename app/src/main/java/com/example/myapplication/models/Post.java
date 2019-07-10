@@ -16,6 +16,7 @@ public class Post extends ParseObject {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
+    public static final String KEY_CREATED_AT = "createdAt";
 
     public String description;
 
@@ -73,6 +74,12 @@ public class Post extends ParseObject {
         public Query withUser()
         {
             include("user");
+            return this;
+        }
+
+        public Query decendingTime()
+        {
+            addDescendingOrder(KEY_CREATED_AT);
             return this;
         }
 

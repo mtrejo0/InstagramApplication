@@ -68,11 +68,11 @@ public class MakePostActvity extends AppCompatActivity {
 
                 Post newPost = createPost(etDescription.getText().toString(),file,ParseUser.getCurrentUser());
 
-//                // new intent to return
-//                Intent i = new Intent();
-////                i.putExtra(Post.class.getSimpleName(), Parcels.wrap(newPost));
-//
-//                setResult(RESULT_OK,i);
+                // new intent to return
+                Intent i = new Intent();
+//                i.putExtra(Post.class.getSimpleName(), Parcels.wrap(newPost));
+
+                setResult(RESULT_OK,i);
                 finish();
 
             }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -13,11 +15,11 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.myapplication.fragments.ComposeFragment;
 import com.example.myapplication.models.Post;
 import com.example.myapplication.models.PostAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +28,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-
-//    private ImageButton btnCreate;
-//    private ImageButton btnLock;
 
     PostAdapter postAdapter;
     ArrayList<Post> posts;
@@ -44,9 +43,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-//        btnCreate = findViewById(R.id.btnCreate);
-//        btnLock = findViewById(R.id.btnLock);
-
         rvPosts = findViewById(R.id.rvPosts);
 
         posts = new ArrayList<>();
@@ -55,9 +51,6 @@ public class HomeActivity extends AppCompatActivity {
 
         LinearLayoutManager lin = new LinearLayoutManager(this);
 
-
-        lin.setReverseLayout(true);
-        lin.setStackFromEnd(true);
 
         rvPosts.setLayoutManager(lin);
 
@@ -91,52 +84,49 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-
-
-
-//        btnCreate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//
-//            }
-//        });
-//
-//        btnLock.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//            }
-//        });
+        final FragmentManager fragmentManager = getSupportFragmentManager();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+                Fragment fragment = new  ComposeFragment();
                 Intent i;
                 switch (item.getItemId()) {
                     case R.id.btnLock:
-                        ParseUser.logOut();
-                        i = new Intent(HomeActivity.this,MainActivity.class);
-                        startActivity(i);
-                        finish();
-                        return true;
+//                        ParseUser.logOut();
+//                        i = new Intent(HomeActivity.this,MainActivity.class);
+//                        startActivity(i);
+//                        finish();
+                        fragment = new ComposeFragment();
+                        break;
                     case R.id.btnCreate:
-                        i = new Intent(HomeActivity.this,MakePostActvity.class);
 
-                        // display the activity
-                        startActivityForResult(i,100);
+//                        i = new Intent(HomeActivity.this,MakePostActvity.class);
+//
+//                        // display the activity
+//                        startActivityForResult(i,100);
+                        fragment = new ComposeFragment();
 
-                        return true;
+                        break;
+                    case R.id.btnHome:
+
+
+
+                        break;
+
+
 
                     default: return true;
                 }
+                fragmentManager.beginTransaction().replace(R.id.flContainer,fragment).commit();
+                        return true;
             }
         });
+
+        bottomNavigationView.setSelectedItemId(R.id.btnCreate);
+
 
 
     }
@@ -164,7 +154,7 @@ public class HomeActivity extends AppCompatActivity {
     {
 
         final Post.Query postQuery = new Post.Query();
-        postQuery.getTop().withUser();
+        postQuery.getTop().withUser().decendingTime();
 
 
         posts.clear();
@@ -200,7 +190,7 @@ public class HomeActivity extends AppCompatActivity {
     {
 
         final Post.Query postQuery = new Post.Query();
-        postQuery.getTop().withUser();
+        postQuery.getTop().withUser().decendingTime();
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
