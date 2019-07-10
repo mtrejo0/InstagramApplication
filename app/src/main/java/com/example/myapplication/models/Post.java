@@ -1,5 +1,7 @@
 package com.example.myapplication.models;
 
+import android.os.Parcel;
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -8,6 +10,7 @@ import com.parse.ParseUser;
 
 
 @ParseClassName("Post")
+
 public class Post extends ParseObject {
 
     public static final String KEY_DESCRIPTION = "description";
@@ -47,6 +50,11 @@ public class Post extends ParseObject {
     public void setUser(ParseUser user)
     {
         put(KEY_USER,user);
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
     }
 
 

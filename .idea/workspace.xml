@@ -13,28 +13,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7bb563-9a4c-4803-9d91-22f077884700" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_load.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_load.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_load.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_load.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_load.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_parceler_parceler_api_1_1_12_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/PostAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/PostAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_post.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,36 +53,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="253">
+              <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="102" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_post.xml">
-          <provider selected="true" editor-type-id="android-designer2" />
-          <provider editor-type-id="text-editor">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="39" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="39" />
+              <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/PostAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+            <state relative-caret-position="583">
+              <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="103" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1500#1925#0" expanded="true" />
-                <element signature="e#1924#1925#0" expanded="true" />
-                <element signature="e#1987#2220#0" expanded="true" />
-                <element signature="e#2219#2220#0" expanded="true" />
-                <element signature="e#1981#1982#0" expanded="true" />
-                <element signature="e#2017#2018#0" expanded="true" />
+                <element signature="e#1984#2228#0" expanded="true" />
+                <element signature="e#2227#2228#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -94,23 +95,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml">
           <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/Post.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#882#883#0" expanded="true" />
                 <element signature="e#927#928#0" expanded="true" />
+                <element signature="e#1107#1108#0" expanded="true" />
+                <element signature="e#1155#1156#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,15 +157,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_make_post_actvity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/Post.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/BitmapScaler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MakePostActvity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home_second.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_post.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/Post.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/PostAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java" />
       </list>
     </option>
@@ -170,7 +182,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -228,7 +240,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,6 +251,7 @@
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
+      <recent name="com.example.myapplication.models" />
       <recent name="com.example.myapplication" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -343,6 +356,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" />
       <window_info id="Image Layers" order="1" />
@@ -564,13 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
@@ -579,53 +586,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="102" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/Post.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#882#883#0" expanded="true" />
             <element signature="e#927#928#0" expanded="true" />
+            <element signature="e#1107#1108#0" expanded="true" />
+            <element signature="e#1155#1156#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_post.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="39" />
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_post.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="90">
+          <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/PostAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+        <state relative-caret-position="583">
+          <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="103" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1500#1925#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#1987#2220#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#1981#1982#0" expanded="true" />
-            <element signature="e#2017#2018#0" expanded="true" />
+            <element signature="e#1984#2228#0" expanded="true" />
+            <element signature="e#2227#2228#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/models/DetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
         </state>
       </provider>
     </entry>
