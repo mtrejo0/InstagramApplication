@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -35,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 ParseUser user = new ParseUser();
 
                 // Set core properties
@@ -46,6 +49,9 @@ public class SignUpActivity extends AppCompatActivity {
                 user.signUpInBackground(new SignUpCallback() {
                     public void done(ParseException e) {
                         if (e == null) {
+                            // start homepage activity
+                            final Intent i = new Intent(SignUpActivity.this,ProfilePictureActivity.class);
+                            startActivity(i);
                             finish();
 
                         } else {

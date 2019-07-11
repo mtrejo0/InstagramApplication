@@ -66,10 +66,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Sign Up"
+        android:background="@android:color/transparent"
+        android:text="Take profile picture"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />

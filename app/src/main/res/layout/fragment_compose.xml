@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivPreview" />
 
     <Button
-        android:id="@+id/btnPost"
+        android:id="@+id/btnSubmit"
         android:layout_width="212dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.252" />
 
     <Button
-        android:id="@+id/btnCancel"
+        android:id="@+id/btnRetake"
         android:layout_width="212dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPost" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
 
     <ProgressBar
         android:id="@+id/pbLoading"
@@ -86,7 +86,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/btnPost"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDescription" />

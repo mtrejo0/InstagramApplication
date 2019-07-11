@@ -66,8 +66,8 @@ public class ComposeFragment extends Fragment {
 
 
         ivPreview = view.findViewById(R.id.ivPreview);
-        btnCancel = view.findViewById(R.id.btnCancel);
-        btnPost = view.findViewById(R.id.btnPost);
+        btnCancel = view.findViewById(R.id.btnRetake);
+        btnPost = view.findViewById(R.id.btnSubmit);
         etDescription = view.findViewById(R.id.etDescription);
 
         onLaunchCamera(ivPreview);
