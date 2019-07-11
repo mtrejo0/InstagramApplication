@@ -37,15 +37,7 @@ public class HomeActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (item.getItemId()) {
                     case R.id.btnLock:
-                        // log out user
-                        ParseUser.logOut();
 
-                        // start log in page activity
-                        Intent i = new Intent(HomeActivity.this, MainActivity.class);
-                        startActivity(i);
-
-                        // kill current screen
-                        finish();
                         break;
                     case R.id.btnCreate:
 

@@ -1,5 +1,6 @@
 package com.example.myapplication.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,13 +13,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.PostAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
 import com.example.myapplication.models.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +32,7 @@ public class HomeFragment extends Fragment {
     PostAdapter postAdapter;
     ArrayList<Post> posts;
     RecyclerView rvPosts;
+    ImageButton btnLock;
 
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
@@ -55,6 +60,25 @@ public class HomeFragment extends Fragment {
         postAdapter = new PostAdapter(posts);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         rvPosts.setAdapter(postAdapter);
+
+
+        btnLock = view.findViewById(R.id.btnLockUser);
+
+        btnLock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // log out user
+                ParseUser.logOut();
+
+                // start log in page activity
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
+
+                // kill current screen
+                getActivity().finish();
+
+            }
+        });
 
 
         // add dividers on posts

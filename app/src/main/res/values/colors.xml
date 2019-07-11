@@ -10,5 +10,6 @@
     <color name="cyan_500">#00BCD4</color>
     <color name="light_blue_500">#03A9F4</color>
     <color name="button_blue">#0097F7</color>
+    <color name="white">#FFFFFF</color>
 
 </resources>

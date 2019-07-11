@@ -60,4 +60,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_send" />
 
+    <ImageButton
+        android:id="@+id/btnLockUser"
+        android:layout_width="42dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_lock" />
+
+
 </android.support.constraint.ConstraintLayout>
