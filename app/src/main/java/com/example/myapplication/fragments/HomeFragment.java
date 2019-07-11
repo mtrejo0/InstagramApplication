@@ -61,7 +61,6 @@ public class HomeFragment extends Fragment {
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         rvPosts.setAdapter(postAdapter);
 
-
         btnLock = view.findViewById(R.id.btnLockUser);
 
         btnLock.setOnClickListener(new View.OnClickListener() {

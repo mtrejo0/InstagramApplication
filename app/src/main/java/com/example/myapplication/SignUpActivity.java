@@ -9,10 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.parse.ParseException;
-import com.parse.ParseUser;
-import com.parse.SignUpCallback;
-
 public class SignUpActivity extends AppCompatActivity {
 
 
@@ -38,28 +34,20 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                ParseUser user = new ParseUser();
-
-                // Set core properties
-                user.setUsername(etUsernmae.getText().toString());
-                user.setPassword(etPassword.getText().toString());
-                user.setEmail(etEmail.getText().toString());
 
 
-                // sign up user with inputted user pass and email
-                user.signUpInBackground(new SignUpCallback() {
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            // start homepage activity
-                            final Intent i = new Intent(SignUpActivity.this,ProfilePictureActivity.class);
-                            startActivity(i);
-                            finish();
+                final String[] userValues = new String[3];
+                userValues[0] = etUsernmae.getText().toString();
+                userValues[1] = etPassword.getText().toString();
+                userValues[2] = etEmail.getText().toString();
 
-                        } else {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+
+                final Intent i = new Intent(SignUpActivity.this,ProfilePictureActivity.class);
+                i.putExtra("userValues",userValues);
+                startActivity(i);
+                finish();
+
+
             }
         });
 

@@ -8,21 +8,21 @@
 
     <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swipeContainer"
-        android:layout_width="418dp"
-        android:layout_height="471dp"
+        android:layout_width="405dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.666">
 
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvPosts"
             android:layout_width="410dp"
-            android:layout_height="734dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
@@ -44,10 +44,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="SampleUsername"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/icProfileImage" />
 
     <TextView
         android:id="@+id/textView2"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/icProfileImage"
         android:layout_width="137dp"
         android:layout_height="149dp"
         android:layout_marginStart="16dp"

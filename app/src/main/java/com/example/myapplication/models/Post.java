@@ -83,8 +83,15 @@ public class Post extends ParseObject {
             return this;
         }
 
+        public Query onlyUser(ParseUser user)
+        {
+            whereEqualTo(Post.KEY_USER,user);
+            return this;
+        }
+
 
     }
+
 
 
 }

@@ -27,7 +27,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivProfileLogo"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfileImage"
         app:srcCompat="@color/colorAccent" />
 
     <TextView
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/ivProfileLogo"
+        android:id="@+id/ivProfileImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -110,7 +110,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#3D2F5C"
         app:layout_constraintBottom_toTopOf="@+id/ivImage"
-        app:layout_constraintStart_toEndOf="@+id/ivProfileLogo" />
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage" />
 
     <TextView
         android:id="@+id/tvDate"

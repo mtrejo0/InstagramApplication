@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfilePictureActivity"></activity>
+        <activity android:name=".ProfileDetailsActivity"></activity>
+        <activity android:name=".ProfilePictureActivity" />
         <activity android:name=".DetailsActivity" />
         <activity
             android:name=".SignUpActivity"

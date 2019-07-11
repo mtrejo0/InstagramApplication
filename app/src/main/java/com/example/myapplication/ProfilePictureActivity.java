@@ -17,6 +17,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -31,8 +38,10 @@ public class ProfilePictureActivity extends AppCompatActivity {
     // values for creating camera intent
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
-    public String photoFileName = "photo.jpg";
+    public String photoFileName = "profile.jpg";
     File photoFile;
+
+    public String[] userValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +62,101 @@ public class ProfilePictureActivity extends AppCompatActivity {
 
         onLaunchCamera(ivPreview);
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signUpUser();
+            }
+        });
+
+
+        userValues = getIntent().getStringArrayExtra("userValues");
+
+
+
+
+
+
     }
+
+
+    public void signUpUser()
+    {
+        final ParseUser user = new ParseUser();
+
+        // Set core properties
+        user.setUsername(userValues[0]);
+        user.setPassword(userValues[1]);
+        user.setEmail(userValues[2]);
+
+
+        // sign up user with inputted user pass and email
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    // start homepage activity
+                    Toast.makeText(ProfilePictureActivity.this, "Made User :)", Toast.LENGTH_SHORT).show();
+
+                    login(user.getUsername(),userValues[1]);
+
+                } else {
+                    e.printStackTrace();
+
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+    }
+
+
+    private void login(String username, String password)
+    {
+        // try to login in background
+        ParseUser.logInInBackground(username, password, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                if (e == null) {
+                    uploadProfileImage();
+
+
+                } else {
+                    e.printStackTrace();
+                }
+            }
+
+
+        });
+    }
+
+    private void uploadProfileImage() {
+
+        ParseUser userProfile = ParseUser.getCurrentUser();
+
+        ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
+
+        userProfile.put("profileImage",file);
+
+        userProfile.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                ParseUser.logOut();
+                finish();
+            }
+        });
+
+    }
+
+
+
+
+
     // rotates image right side up before uploading
     public Bitmap rotateBitmapOrientation(String photoFilePath) {
         // Create and configure BitmapFactory

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.myapplication.PostAdapter;
 import com.example.myapplication.R;
@@ -19,6 +20,7 @@ import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener
 import com.example.myapplication.models.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class ProfileFragment extends Fragment {
     PostAdapter postAdapter;
     ArrayList<Post> posts;
     RecyclerView rvPosts;
+    TextView tvUsername;
 
 
     private SwipeRefreshLayout swipeContainer;
@@ -41,7 +44,6 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate((R.layout.fragment_profile),container,false);
 
     }
@@ -57,6 +59,9 @@ public class ProfileFragment extends Fragment {
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         rvPosts.setAdapter(postAdapter);
 
+        // set username under photo
+        tvUsername = view.findViewById(R.id.tvUsername);
+        tvUsername.setText(ParseUser.getCurrentUser().getUsername());
 
 
         // add dividers on posts
@@ -130,7 +135,6 @@ public class ProfileFragment extends Fragment {
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
-
 
                 if(e==null)
                 {

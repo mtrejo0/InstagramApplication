@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.models.Post;
+import com.parse.ParseUser;
 
 import org.parceler.Parcels;
 
@@ -80,6 +81,21 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             }
         });
 
+        viewHolder.ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ParseUser user = post.getUser();
+                final Intent intent = new Intent(context, ProfileDetailsActivity.class);
+                //pass in user that was selected
+                intent.putExtra("user", user.getUsername());
+                intent.putExtra(ParseUser.class.getSimpleName(), Parcels.wrap(user));
+                context.startActivity(intent);
+
+
+            }
+        });
+
 
     }
 
@@ -94,6 +110,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public TextView tvUser;
         public TextView tvUserTop;
         public TextView tvDate;
+        public ImageView ivProfileImage;
 
         public ViewHolder(View itemView)
         {
@@ -103,6 +120,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvUser = itemView.findViewById(R.id.tvUser);
             tvUserTop = itemView.findViewById(R.id.tvUserTop);
             tvDate = itemView.findViewById(R.id.tvDate);
+            ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
         }
 
     }
