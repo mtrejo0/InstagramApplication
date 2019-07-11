@@ -16,6 +16,7 @@ public class DetailsActivity extends AppCompatActivity {
     public TextView tvDescription;
     public TextView tvUser;
     public TextView tvUserTop;
+    public TextView tvDate;
 
 
     @Override
@@ -28,6 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
         tvDescription = findViewById(R.id.tvDescription);
         tvUser = findViewById(R.id.tvUser);
         tvUserTop =  findViewById(R.id.tvUserTop);
+        tvDate = findViewById(R.id.tvDate);
 
 
         // gets post that was passed in to the activity to display
@@ -36,6 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         tvDescription.setText(post.getDescription());
         tvUser.setText(post.getUser().getUsername());
         tvUserTop.setText(post.getUser().getUsername());
+        tvDate.setText(post.getCreatedAt().toString().substring(0,10));
 
         // gets url for image post and displays it
         String imageUrl = post.getImage().getUrl();

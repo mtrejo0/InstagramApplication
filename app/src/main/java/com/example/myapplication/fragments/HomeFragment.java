@@ -13,9 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myapplication.R;
-import com.example.myapplication.models.Post;
 import com.example.myapplication.PostAdapter;
+import com.example.myapplication.R;
+import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
+import com.example.myapplication.models.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 
@@ -29,6 +30,9 @@ public class HomeFragment extends Fragment {
     RecyclerView rvPosts;
 
     private SwipeRefreshLayout swipeContainer;
+    private EndlessRecyclerViewScrollListener scrollListener;
+
+    int maxPosts = 20;
 
 
 
@@ -63,8 +67,34 @@ public class HomeFragment extends Fragment {
         setUpSwipeContainer(getView());
 
         // populate timeline with top 20 posts
-        loadTopPosts();
+        loadTopPosts(maxPosts);
 
+
+
+        // set up scroll listener to know when to reload posts
+        infiniteScroll();
+
+    }
+
+    public void infiniteScroll()
+    {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rvPosts.setLayoutManager(linearLayoutManager);
+        // Retain an instance so that you can call `resetState()` for fresh searches
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+
+                infiniteReload(maxPosts+=20);
+                rvPosts.scrollToPosition(maxPosts-20);
+
+
+            }
+        };
+        // Adds the scroll listener to RecyclerView
+        rvPosts.addOnScrollListener(scrollListener);
     }
 
 
@@ -78,7 +108,7 @@ public class HomeFragment extends Fragment {
                 // Your code to refresh the list here.
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
-                reloadTopPosts();
+                reloadTopPosts(20);
 
             }
         });
@@ -89,13 +119,44 @@ public class HomeFragment extends Fragment {
                 android.R.color.holo_red_light);
     }
 
-
-
-    private void reloadTopPosts()
+    private void infiniteReload(final int maxPosts)
     {
 
         final Post.Query postQuery = new Post.Query();
-        postQuery.getTop().withUser().decendingTime();
+        postQuery.getTop(maxPosts).withUser().decendingTime();
+
+        postQuery.findInBackground(new FindCallback<Post>() {
+            @Override
+            public void done(List<Post> objects, ParseException e) {
+
+
+                if(e==null)
+                {
+                    for(int i = maxPosts-20; i < objects.size();i++)
+                    {
+                        Post post = objects.get(i);
+                        posts.add(post);
+                        postAdapter.notifyItemInserted(posts.size()-1);
+                    }
+                    // end refresh icon
+                    swipeContainer.setRefreshing(false);
+                }
+                else
+                {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+
+
+    private void reloadTopPosts(int maxPosts)
+    {
+
+        final Post.Query postQuery = new Post.Query();
+        postQuery.getTop(maxPosts).withUser().decendingTime();
 
 
         posts.clear();
@@ -127,11 +188,11 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private void loadTopPosts()
+    private void loadTopPosts(int maxPosts)
     {
 
         final Post.Query postQuery = new Post.Query();
-        postQuery.getTop().withUser().decendingTime();
+        postQuery.getTop(maxPosts).withUser().decendingTime();
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
