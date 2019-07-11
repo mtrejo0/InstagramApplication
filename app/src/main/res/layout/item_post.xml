@@ -13,11 +13,11 @@
         android:layout_height="21dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="16dp"
         android:text="Description"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvUser" />
+        android:textColor="#0F0F0F"
+        app:layout_constraintStart_toEndOf="@+id/tvUser"
+        app:layout_constraintTop_toTopOf="@+id/tvUser" />
 
     <ImageView
         android:id="@+id/ivImage"
@@ -39,11 +39,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:text="Username"
-        android:textStyle="bold"
         android:textColor="#3D2F5C"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLike" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLike"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/ivProfileLogo"
@@ -110,5 +111,19 @@
         android:textColor="#3D2F5C"
         app:layout_constraintBottom_toTopOf="@+id/ivImage"
         app:layout_constraintStart_toEndOf="@+id/ivProfileLogo" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="6hs ago"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvUser"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

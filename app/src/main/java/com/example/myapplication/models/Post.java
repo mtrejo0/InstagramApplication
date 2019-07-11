@@ -53,6 +53,7 @@ public class Post extends ParseObject {
         put(KEY_USER,user);
     }
 
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
