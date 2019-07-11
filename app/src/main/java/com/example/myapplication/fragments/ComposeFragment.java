@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +23,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.myapplication.BitmapScaler;
 import com.example.myapplication.R;
 import com.example.myapplication.models.Post;
 import com.parse.ParseException;
@@ -62,24 +62,54 @@ public class ComposeFragment extends Fragment {
         btnCancel = view.findViewById(R.id.btnCancel);
         btnPost = view.findViewById(R.id.btnPost);
         etDescription = view.findViewById(R.id.etDescription);
+
+
         onLaunchCamera(ivPreview);
 
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Fragment home = new HomeFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.flContainer, home);
+                transaction.addToBackStack(null);
+                // Commit the transaction
+                transaction.commit();
+
+
+            }
+        });
+
+        btnPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
+
+
+                Post newPost = createPost(etDescription.getText().toString(),file,ParseUser.getCurrentUser());
+
+
+                Fragment home = new HomeFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.flContainer, home);
+                transaction.addToBackStack(null);
+                // Commit the transaction
+                transaction.commit();
+
+            }
+        });
+
 
 
 
     }
 
-    public Bitmap resizeImage(String photoFileName)
-    {
-        // See code above
-        Uri takenPhotoUri = Uri.fromFile(getPhotoFileUri(photoFileName));
-        // by this point we have the camera photo on disk
-        Bitmap rawTakenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-        // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
-        Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, 200);
-
-        return resizedBitmap;
-    }
 
 
     public Bitmap rotateBitmapOrientation(String photoFilePath) {
