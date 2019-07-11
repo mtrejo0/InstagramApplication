@@ -10,7 +10,6 @@ import com.parse.ParseUser;
 
 
 @ParseClassName("Post")
-
 public class Post extends ParseObject {
 
     public static final String KEY_DESCRIPTION = "description";
@@ -18,14 +17,8 @@ public class Post extends ParseObject {
     public static final String KEY_USER = "user";
     public static final String KEY_CREATED_AT = "createdAt";
 
-    public String description;
-
-    public Post ()
-    {
-
-    }
-
     public String getDescription() {
+
         return getString(KEY_DESCRIPTION);
     }
 
@@ -33,7 +26,6 @@ public class Post extends ParseObject {
     {
         put(KEY_DESCRIPTION,description) ;
     }
-
 
     public ParseFile getImage() {
         return getParseFile(KEY_IMAGE);
@@ -53,7 +45,6 @@ public class Post extends ParseObject {
         put(KEY_USER,user);
     }
 
-
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
@@ -72,12 +63,14 @@ public class Post extends ParseObject {
             return this;
         }
 
+        // makes sure the user json is also included in the response
         public Query withUser()
         {
             include("user");
             return this;
         }
 
+        // gets the order of elements in decending order by time
         public Query decendingTime()
         {
             addDescendingOrder(KEY_CREATED_AT);

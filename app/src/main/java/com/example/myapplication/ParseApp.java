@@ -13,7 +13,7 @@ public class ParseApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-
+        // link to the Post class
         ParseObject.registerSubclass(Post.class);
 
         final Parse.Configuration configuration = new Parse.Configuration.Builder(this)

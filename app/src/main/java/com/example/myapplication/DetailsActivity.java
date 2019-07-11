@@ -1,4 +1,4 @@
-package com.example.myapplication.models;
+package com.example.myapplication;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
+import com.example.myapplication.models.Post;
 
 import org.parceler.Parcels;
 
@@ -30,18 +30,14 @@ public class DetailsActivity extends AppCompatActivity {
         tvUserTop =  findViewById(R.id.tvUserTop);
 
 
+        // gets post that was passed in to the activity to display
         final Post post = Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
 
-
-
-
         tvDescription.setText(post.getDescription());
-
         tvUser.setText(post.getUser().getUsername());
-
         tvUserTop.setText(post.getUser().getUsername());
 
-
+        // gets url for image post and displays it
         String imageUrl = post.getImage().getUrl();
         Glide.with(this)
                 .load(imageUrl)

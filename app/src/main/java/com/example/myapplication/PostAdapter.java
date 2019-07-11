@@ -1,4 +1,4 @@
-package com.example.myapplication.models;
+package com.example.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
+import com.example.myapplication.models.Post;
 
 import org.parceler.Parcels;
 
@@ -42,9 +42,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
+
+        // gets the post that corresponds to that position in the recycler view
         final Post post = mPosts.get(i);
+
+        // fill in text views
         viewHolder.tvDescription.setText(post.getDescription());
 
         viewHolder.tvUser.setText(post.getUser().getUsername());
@@ -53,19 +58,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         viewHolder.tvDate.setText(post.getCreatedAt().toString());
 
-
+        // gets image url from the parse object
         String imageUrl= post.getImage().getUrl();
         Glide.with(context)
                 .load(imageUrl)
                 .into(viewHolder.ivImage);
 
 
+        // open a new details activity if item is long clicked
         viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                final Intent i = new Intent(context, DetailsActivity.class);
-                i.putExtra(Post.class.getSimpleName(), Parcels.wrap(post));
-                context.startActivity(i);
+
+                final Intent intent = new Intent(context, DetailsActivity.class);
+
+                //pass in post that was selected
+                intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(post));
+                context.startActivity(intent);
+
                 return true;
             }
         });

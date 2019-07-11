@@ -36,36 +36,36 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ParseUser user = new ParseUser();
+
                 // Set core properties
                 user.setUsername(etUsernmae.getText().toString());
                 user.setPassword(etPassword.getText().toString());
                 user.setEmail(etEmail.getText().toString());
 
-                // Invoke signUpInBackground
+                // sign up user with inputted user pass and email
                 user.signUpInBackground(new SignUpCallback() {
                     public void done(ParseException e) {
                         if (e == null) {
-                            // Hooray! Let them use the app now.
                             finish();
 
                         } else {
-                            // Sign up didn't succeed. Look at the ParseException
-                            // to figure out what went wrong
+                            e.printStackTrace();
                         }
                     }
                 });
             }
         });
 
+        // create reference to the background
         ConstraintLayout background = findViewById(R.id.background);
-        // onCreate
+
+        // start animation
         AnimationDrawable animationDrawable = (AnimationDrawable) background.getBackground();
         animationDrawable.setEnterFadeDuration(5000);
         animationDrawable.setExitFadeDuration(2000);
-        // onResume
+
         animationDrawable.start();
 
-        getSupportActionBar();
 
 
     }

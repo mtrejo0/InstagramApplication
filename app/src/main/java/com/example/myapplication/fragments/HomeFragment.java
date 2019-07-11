@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.myapplication.R;
 import com.example.myapplication.models.Post;
-import com.example.myapplication.models.PostAdapter;
+import com.example.myapplication.PostAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 
@@ -47,27 +47,31 @@ public class HomeFragment extends Fragment {
 
 
         rvPosts = view.findViewById(R.id.rvPosts);
-
         posts = new ArrayList<>();
-
         postAdapter = new PostAdapter(posts);
-
-        LinearLayoutManager lin = new LinearLayoutManager(getContext());
-
-
-        rvPosts.setLayoutManager(lin);
-
-
+        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         rvPosts.setAdapter(postAdapter);
 
-        loadTopPosts();
 
+        // add dividers on posts
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvPosts.getContext(),
                 new LinearLayoutManager(getContext()).getOrientation());
         rvPosts.addItemDecoration(dividerItemDecoration);
 
 
-        swipeContainer =  view.findViewById(R.id.swipeContainer);
+        // set up swipe container on recycler view
+        setUpSwipeContainer(getView());
+
+
+        // populate timeline with top 20 posts
+        loadTopPosts();
+
+    }
+
+
+    public void setUpSwipeContainer(View v)
+    {
+        swipeContainer =  v.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -84,9 +88,6 @@ public class HomeFragment extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
-
-
     }
 
 

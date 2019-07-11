@@ -42,44 +42,39 @@ public class ComposeFragment extends Fragment {
     private Button btnCancel;
     private Button btnPost;
     private EditText etDescription;
+
+    // values for creating camera intent
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
     File photoFile;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
         return inflater.inflate((R.layout.fragment_compose), container, false);
     }
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
         ivPreview = view.findViewById(R.id.ivPreview);
         btnCancel = view.findViewById(R.id.btnCancel);
         btnPost = view.findViewById(R.id.btnPost);
         etDescription = view.findViewById(R.id.etDescription);
 
-
         onLaunchCamera(ivPreview);
 
+        // cancel button
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Fragment home = new HomeFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack so the user can navigate back
-                transaction.replace(R.id.flContainer, home);
-                transaction.addToBackStack(null);
-                // Commit the transaction
-                transaction.commit();
-
-
+                goToHomeFragment();
             }
         });
 
@@ -89,8 +84,6 @@ public class ComposeFragment extends Fragment {
             public void onClick(View v) {
 
                 ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
-
-
                 btnPost.setOnClickListener(null);
                 createPost(etDescription.getText().toString(), file, ParseUser.getCurrentUser());
 
@@ -102,23 +95,18 @@ public class ComposeFragment extends Fragment {
 
     public void goToHomeFragment(){
 
+        // create new fragment to use
         Fragment home = new HomeFragment();
-
-        Bundle bundle = new Bundle();
-        bundle.putString("fragment", "ComposeFragment");
-
-
+        // transaction on current activity
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack so the user can navigate back
         transaction.replace(R.id.flContainer, home);
         transaction.addToBackStack(null);
-        home.setArguments(bundle);
         // Commit the transaction
         transaction.commit();
     }
 
 
+    // rotates image right side up before uploading
     public Bitmap rotateBitmapOrientation(String photoFilePath) {
         // Create and configure BitmapFactory
         BitmapFactory.Options bounds = new BitmapFactory.Options();
@@ -149,21 +137,21 @@ public class ComposeFragment extends Fragment {
 
 
     private void createPost(String description, ParseFile imageFile, ParseUser user) {
+        // create a post
         final Post newPost = new Post();
         newPost.setDescription(description);
         newPost.setImage(imageFile);
         newPost.setUser(user);
-        Log.d("HomeActivity", "Create post attempt");
 
+        // submit to database
         newPost.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    Log.d("HomeActivity", "Post successful!");
+                    // success go home
                     goToHomeFragment();
 
                 } else {
-                    Log.d("HomeActivity", "Post failure!");
                     e.printStackTrace();
                 }
             }
@@ -197,12 +185,10 @@ public class ComposeFragment extends Fragment {
         // Use `getExternalFilesDir` on Context to access package-specific directories.
         // This way, we don't need to request external read/write runtime permissions.
         File mediaStorageDir = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
-
         // Create the storage directory if it does not exist
         if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
             Log.d(APP_TAG, "failed to create directory");
         }
-
         // Return the file target for the photo based on filename
         File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
 
@@ -213,17 +199,12 @@ public class ComposeFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                // by this point we have the camera photo on disk
 
+                // rotate image and load into view
                 Bitmap rotated = rotateBitmapOrientation(photoFile.getAbsolutePath());
-
-                // RESIZE BITMAP, see section below
-                // Load the taken image into a preview
-
-                Toast.makeText(getContext(), "Picture was taken!", Toast.LENGTH_SHORT).show();
-
                 ivPreview.setImageBitmap(rotated);
 
+                Toast.makeText(getContext(), "Picture was taken!", Toast.LENGTH_SHORT).show();
 
             } else { // Result was a failure
                goToHomeFragment();

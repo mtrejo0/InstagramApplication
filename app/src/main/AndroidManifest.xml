@@ -16,9 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".models.DetailsActivity"></activity>
-        <activity android:name=".MakePostActvity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".DetailsActivity"></activity>
+
         <activity android:name=".SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
