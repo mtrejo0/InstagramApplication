@@ -62,7 +62,6 @@ public class HomeFragment extends Fragment {
         // set up swipe container on recycler view
         setUpSwipeContainer(getView());
 
-
         // populate timeline with top 20 posts
         loadTopPosts();
 
