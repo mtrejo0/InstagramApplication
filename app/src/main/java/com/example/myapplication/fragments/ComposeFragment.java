@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -42,6 +43,7 @@ public class ComposeFragment extends Fragment {
     private Button btnCancel;
     private Button btnPost;
     private EditText etDescription;
+    private ProgressBar progressBar;
 
     // values for creating camera intent
     public final String APP_TAG = "MyCustomApp";
@@ -89,6 +91,11 @@ public class ComposeFragment extends Fragment {
 
             }
         });
+
+        // on some click or some loading we need to wait for...
+        progressBar =  view.findViewById(R.id.pbLoading);
+
+
 
 
     }
@@ -143,11 +150,16 @@ public class ComposeFragment extends Fragment {
         newPost.setImage(imageFile);
         newPost.setUser(user);
 
+        // show loading gif while posting
+        progressBar.setVisibility(ProgressBar.VISIBLE);
+
         // submit to database
         newPost.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
+                    // post is done end progress bar
+                    progressBar.setVisibility(ProgressBar.INVISIBLE);
                     // success go home
                     goToHomeFragment();
 
