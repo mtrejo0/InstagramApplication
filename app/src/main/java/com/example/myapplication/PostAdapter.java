@@ -96,6 +96,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             }
         });
 
+        Glide.with(context)
+                .load(post.getUser().getParseFile("profileImage").getUrl())
+                .into(viewHolder.ivProfileImage);
+
+
+
+
 
     }
 
@@ -111,6 +118,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public TextView tvUserTop;
         public TextView tvDate;
         public ImageView ivProfileImage;
+
 
         public ViewHolder(View itemView)
         {

@@ -12,8 +12,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.PostAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
@@ -31,12 +33,15 @@ public class ProfileFragment extends Fragment {
     ArrayList<Post> posts;
     RecyclerView rvPosts;
     TextView tvUsername;
+    ImageView ivProfileImage;
+
 
 
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
 
     int maxPosts = 20;
+
 
 
 
@@ -62,6 +67,13 @@ public class ProfileFragment extends Fragment {
         // set username under photo
         tvUsername = view.findViewById(R.id.tvUsername);
         tvUsername.setText(ParseUser.getCurrentUser().getUsername());
+
+
+        ivProfileImage = view.findViewById(R.id.ivProfileImage);
+
+        Glide.with(this)
+                .load(ParseUser.getCurrentUser().getParseFile("profileImage").getUrl())
+                .into(ivProfileImage);
 
 
         // add dividers on posts

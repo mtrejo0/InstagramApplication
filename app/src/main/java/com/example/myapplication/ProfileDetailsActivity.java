@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
 import com.example.myapplication.models.Post;
 import com.parse.FindCallback;
@@ -27,6 +29,7 @@ public class ProfileDetailsActivity extends AppCompatActivity {
     ArrayList<Post> posts;
     RecyclerView rvPosts;
     TextView tvUsername;
+    ImageView ivProfileImage;
 
 
     private SwipeRefreshLayout swipeContainer;
@@ -62,6 +65,14 @@ public class ProfileDetailsActivity extends AppCompatActivity {
 
         // populate timeline with top 20 posts
         loadAllUserPosts(targetUser);
+
+
+        ivProfileImage = findViewById(R.id.ivProfileImage);
+        String photoUrl = targetUser.getParseFile("profileImage").getUrl();
+
+        Glide.with(this)
+                .load(photoUrl)
+                .into(ivProfileImage);
 
 
     }
