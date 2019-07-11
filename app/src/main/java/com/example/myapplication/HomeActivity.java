@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,7 +10,7 @@ import android.view.MenuItem;
 
 import com.example.myapplication.fragments.ComposeFragment;
 import com.example.myapplication.fragments.HomeFragment;
-import com.parse.ParseUser;
+import com.example.myapplication.fragments.ProfileFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -22,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_navigation);
 
 
         // define manager to decide which fragment to display
@@ -36,7 +35,10 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
                 switch (item.getItemId()) {
-                    case R.id.btnLock:
+                    case R.id.btnProfile:
+                        // switch to profile fragment
+                        fragment = new ProfileFragment();
+                        fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
 
                         break;
                     case R.id.btnCreate:

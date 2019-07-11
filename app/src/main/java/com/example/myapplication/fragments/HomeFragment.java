@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.LoginActivity;
 import com.example.myapplication.PostAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
                 ParseUser.logOut();
 
                 // start log in page activity
-                Intent i = new Intent(getActivity(), MainActivity.class);
+                Intent i = new Intent(getActivity(), LoginActivity.class);
                 startActivity(i);
 
                 // kill current screen

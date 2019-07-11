@@ -28,12 +28,10 @@
 
 
     <item
-        android:id="@+id/btnLock"
+        android:id="@+id/btnProfile"
         android:enabled="true"
         android:icon="@drawable/ic_profile"
         app:showAsAction="ifRoom" />
-
-
 
 
 </menu>

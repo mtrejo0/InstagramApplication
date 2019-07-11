@@ -77,6 +77,12 @@ public class Post extends ParseObject {
             return this;
         }
 
+        public Query onlyCurrentUser()
+        {
+            whereEqualTo(Post.KEY_USER,ParseUser.getCurrentUser());
+            return this;
+        }
+
 
     }
 
