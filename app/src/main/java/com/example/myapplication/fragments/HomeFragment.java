@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        loadTopPosts();
+
         return inflater.inflate((R.layout.fragment_home),container,false);
 
     }
@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         rvPosts = view.findViewById(R.id.rvPosts);
 

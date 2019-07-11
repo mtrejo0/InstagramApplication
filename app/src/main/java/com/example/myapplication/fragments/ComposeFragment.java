@@ -52,7 +52,7 @@ public class ComposeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        return inflater.inflate((R.layout.fragment_compose),container,false);
+        return inflater.inflate((R.layout.fragment_compose), container, false);
     }
 
     @Override
@@ -83,6 +83,7 @@ public class ComposeFragment extends Fragment {
             }
         });
 
+        //Post button
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,26 +91,32 @@ public class ComposeFragment extends Fragment {
                 ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
 
 
-                Post newPost = createPost(etDescription.getText().toString(),file,ParseUser.getCurrentUser());
-
-
-                Fragment home = new HomeFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack so the user can navigate back
-                transaction.replace(R.id.flContainer, home);
-                transaction.addToBackStack(null);
-                // Commit the transaction
-                transaction.commit();
+                btnPost.setOnClickListener(null);
+                createPost(etDescription.getText().toString(), file, ParseUser.getCurrentUser());
 
             }
         });
 
 
-
-
     }
 
+    public void goToHomeFragment(){
+
+        Fragment home = new HomeFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("fragment", "ComposeFragment");
+
+
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(R.id.flContainer, home);
+        transaction.addToBackStack(null);
+        home.setArguments(bundle);
+        // Commit the transaction
+        transaction.commit();
+    }
 
 
     public Bitmap rotateBitmapOrientation(String photoFilePath) {
@@ -141,36 +148,27 @@ public class ComposeFragment extends Fragment {
     }
 
 
-    private Post createPost(String description, ParseFile imageFile, ParseUser user)
-    {
+    private void createPost(String description, ParseFile imageFile, ParseUser user) {
         final Post newPost = new Post();
         newPost.setDescription(description);
         newPost.setImage(imageFile);
         newPost.setUser(user);
-        Log.d("HomeActivity","Create post attempt");
+        Log.d("HomeActivity", "Create post attempt");
 
         newPost.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                if(e == null)
-                {
-                    Log.d("HomeActivity","Post successful!");
+                if (e == null) {
+                    Log.d("HomeActivity", "Post successful!");
+                    goToHomeFragment();
 
-                }
-                else
-                {
-                    Log.d("HomeActivity","Post failure!");
+                } else {
+                    Log.d("HomeActivity", "Post failure!");
                     e.printStackTrace();
                 }
             }
         });
-
-        return newPost;
-
     }
-
-
-
 
 
     public void onLaunchCamera(View view) {
@@ -201,7 +199,7 @@ public class ComposeFragment extends Fragment {
         File mediaStorageDir = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
 
         // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
             Log.d(APP_TAG, "failed to create directory");
         }
 
@@ -227,9 +225,8 @@ public class ComposeFragment extends Fragment {
                 ivPreview.setImageBitmap(rotated);
 
 
-
             } else { // Result was a failure
-                Toast.makeText(getContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+               goToHomeFragment();
             }
         }
     }
