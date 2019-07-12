@@ -17,6 +17,7 @@ public class DetailsActivity extends AppCompatActivity {
     public TextView tvUser;
     public TextView tvUserTop;
     public TextView tvDate;
+    public ImageView ivProfileImage;
 
 
     @Override
@@ -45,6 +46,12 @@ public class DetailsActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(imageUrl)
                 .into(ivImage);
+
+        ivProfileImage = findViewById(R.id.ivProfileImage);
+
+        Glide.with(this)
+                .load(post.getUser().getParseFile("profileImage").getUrl())
+                .into(ivProfileImage);
 
 
 
