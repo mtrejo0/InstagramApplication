@@ -26,9 +26,9 @@ The following **stretch** features are implemented:
 - [x] Show the username and creation time for each post
 - [x] After the user submits a new post, show an indeterminate progress bar while the post is being uploaded to Parse
 - User Profiles:
-  - [ ] Allow the logged in user to add a profile photo
-  - [ ] Display the profile photo with each post
-  - [ ] Tapping on a post's username or profile photo goes to that user's profile page
+  - [x] Allow the logged in user to add a profile photo
+  - [x] Display the profile photo with each post
+  - [x] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [ ] User can like a post and see number of likes for each post in the post details screen.
 - [ ] Create a custom Camera View on your phone.
@@ -37,6 +37,8 @@ The following **stretch** features are implemented:
 The following **additional** features are implemented:
 
 - [x] gradient of colors onlogin page of instagram
+- [x] user can retake profile picture
+- [x] current tab of 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
