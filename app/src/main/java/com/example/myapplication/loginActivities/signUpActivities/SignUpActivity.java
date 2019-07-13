@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication.R;
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -31,24 +35,11 @@ public class SignUpActivity extends AppCompatActivity {
         etUsernmae = findViewById(R.id.etUsername);
         btnSignUp = findViewById(R.id.btnSignUp);
 
+        // sign up button
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-                final String[] userValues = new String[3];
-                userValues[0] = etUsernmae.getText().toString();
-                userValues[1] = etPassword.getText().toString();
-                userValues[2] = etEmail.getText().toString();
-
-
-                final Intent i = new Intent(SignUpActivity.this, ProfilePictureCaptureActivity.class);
-                i.putExtra("userValues",userValues);
-                startActivity(i);
-                finish();
-
-
+                signUpUser();
             }
         });
 
@@ -59,10 +50,50 @@ public class SignUpActivity extends AppCompatActivity {
         AnimationDrawable animationDrawable = (AnimationDrawable) background.getBackground();
         animationDrawable.setEnterFadeDuration(5000);
         animationDrawable.setExitFadeDuration(2000);
-
         animationDrawable.start();
 
+    }
 
 
+    public void signUpUser()
+    {
+        final ParseUser user = new ParseUser();
+
+        user.setEmail(etEmail.getText().toString());
+        user.setUsername(etUsernmae.getText().toString());
+        user.setPassword(etPassword.getText().toString());
+
+        // sign up user with inputted user pass and email
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    //login as this user temporarily
+                    login(user.getUsername(),etPassword.getText().toString());
+
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void login(String username, String password)
+    {
+        // try to login in background
+        ParseUser.logInInBackground(username, password, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                if (e == null) {
+                    Intent profilePictureIntent = new Intent(SignUpActivity.this, ProfilePictureCaptureActivity.class);
+                    startActivity(profilePictureIntent);
+                    finish();
+
+                } else {
+                    e.printStackTrace();
+                }
+            }
+
+
+        });
     }
 }

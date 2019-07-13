@@ -18,12 +18,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.parse.SignUpCallback;
 
 import java.io.File;
 import java.io.IOException;
@@ -66,59 +64,13 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signUpUser();
+                uploadProfileImage();
             }
         });
-
-        // get previous inputted values
-        userValues = getIntent().getStringArrayExtra("userValues");
-
         onLaunchCamera(ivPreview);
 
     }
-    
-    public void signUpUser()
-    {
-        final ParseUser user = new ParseUser();
 
-        // Set core properties
-        user.setUsername(userValues[0]);
-        user.setPassword(userValues[1]);
-        user.setEmail(userValues[2]);
-
-        // sign up user with inputted user pass and email
-        user.signUpInBackground(new SignUpCallback() {
-            public void done(ParseException e) {
-                if (e == null) {
-                    // start homepage activity
-                    Toast.makeText(ProfilePictureCaptureActivity.this, "Made User :)", Toast.LENGTH_SHORT).show();
-
-                    login(user.getUsername(),userValues[1]);
-
-                } else {
-                    e.printStackTrace();
-
-                }
-            }
-        });
-    }
-
-    private void login(String username, String password)
-    {
-        // try to login in background
-        ParseUser.logInInBackground(username, password, new LogInCallback() {
-            @Override
-            public void done(ParseUser user, ParseException e) {
-                if (e == null) {
-                    uploadProfileImage();
-                } else {
-                    e.printStackTrace();
-                }
-            }
-
-
-        });
-    }
 
     private void uploadProfileImage() {
 
@@ -130,6 +82,8 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         userProfile.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
+
+                // logout as user we signed up
                 ParseUser.logOut();
                 finish();
             }
@@ -201,6 +155,7 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         return file;
     }
 
+    // what happens when picture is taken
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
