@@ -23,8 +23,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     private List<Post> mPosts;
     Context context;
 
-
-
     public PostAdapter(List<Post> posts)
     {
         mPosts = posts;

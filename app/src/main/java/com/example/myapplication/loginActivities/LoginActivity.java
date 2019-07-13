@@ -60,8 +60,6 @@ public class LoginActivity extends AppCompatActivity {
         startColorAnimation();
     }
 
-
-
     private void startColorAnimation()
     {
         // get reference to background to change colors

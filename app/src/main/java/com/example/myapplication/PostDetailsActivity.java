@@ -19,19 +19,16 @@ public class PostDetailsActivity extends AppCompatActivity {
     public TextView tvDate;
     public ImageView ivProfileImage;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
 
         ivImage = findViewById(R.id.ivImage);
         tvDescription = findViewById(R.id.tvDescription);
         tvUser = findViewById(R.id.tvUser);
         tvUserTop =  findViewById(R.id.tvUserTop);
         tvDate = findViewById(R.id.tvDate);
-
 
         // gets post that was passed in to the activity to display
         final Post post = Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));

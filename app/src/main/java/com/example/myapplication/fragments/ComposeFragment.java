@@ -63,7 +63,6 @@ public class ComposeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         ivPreview = view.findViewById(R.id.ivPreview);
         btnCancel = view.findViewById(R.id.btnRetake);
         btnPost = view.findViewById(R.id.btnSubmit);
@@ -93,9 +92,6 @@ public class ComposeFragment extends Fragment {
 
         // on some click or some loading we need to wait for...
         progressBar =  view.findViewById(R.id.pbLoading);
-
-
-
 
     }
 

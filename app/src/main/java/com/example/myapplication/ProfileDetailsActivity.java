@@ -24,8 +24,6 @@ import java.util.List;
 
 public class ProfileDetailsActivity extends AppCompatActivity {
 
-
-
     PostAdapter postAdapter;
     ArrayList<Post> posts;
     RecyclerView rvPosts;
@@ -38,7 +36,6 @@ public class ProfileDetailsActivity extends AppCompatActivity {
 
     int maxPosts = 20;
     ParseUser targetUser;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

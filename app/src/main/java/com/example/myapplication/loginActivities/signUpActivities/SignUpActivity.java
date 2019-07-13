@@ -17,12 +17,10 @@ import com.parse.SignUpCallback;
 
 public class SignUpActivity extends AppCompatActivity {
 
-
     private EditText etEmail;
     private EditText etUsernmae;
     private EditText etPassword;
     private Button btnSignUp;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,6 @@ public class SignUpActivity extends AppCompatActivity {
         animationDrawable.start();
 
     }
-
 
     public void signUpUser()
     {

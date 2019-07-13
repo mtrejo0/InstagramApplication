@@ -12,9 +12,7 @@
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b7bb563-9a4c-4803-9d91-22f077884700" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ProfileDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ProfileDetailsActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="3b7bb563-9a4c-4803-9d91-22f077884700" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,20 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/loginActivities/signUpActivities/SignUpActivity.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ComposeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1178#1324#0" expanded="true" />
-                <element signature="e#1323#1324#0" expanded="true" />
-                <element signature="e#2541#2979#0" expanded="true" />
-                <element signature="e#2978#2979#0" expanded="true" />
-                <element signature="e#3146#3439#0" expanded="true" />
-                <element signature="e#3438#3439#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2535">
+              <caret line="214" column="36" lean-forward="true" selection-start-line="214" selection-start-column="36" selection-end-line="214" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -148,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ProfileDetailsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+            <state relative-caret-position="352">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="e#2581#3152#0" expanded="true" />
                 <element signature="e#3151#3152#0" expanded="true" />
@@ -299,6 +288,13 @@
             <path>
               <item name="fbuInstagram" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="myapplication" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fbuInstagram" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
           </expand>
@@ -313,7 +309,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="device.picker.selection" value="Pixel_API_28" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -433,7 +429,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" />
       <window_info id="Image Layers" order="1" />
@@ -789,13 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ComposeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="214" column="36" lean-forward="true" selection-start-line="214" selection-start-column="36" selection-end-line="214" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/loginActivities/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -913,12 +901,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/ProfileDetailsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+        <state relative-caret-position="352">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
           <folding>
             <element signature="e#2581#3152#0" expanded="true" />
             <element signature="e#3151#3152#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ComposeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2535">
+          <caret line="214" column="36" lean-forward="true" selection-start-line="214" selection-start-column="36" selection-end-line="214" selection-end-column="36" />
         </state>
       </provider>
     </entry>

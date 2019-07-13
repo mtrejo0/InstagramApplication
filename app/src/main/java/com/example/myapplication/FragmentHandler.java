@@ -19,7 +19,6 @@ public class FragmentHandler extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-
         // define manager to decide which fragment to display
         final FragmentManager fragmentManager = getSupportFragmentManager();
 

@@ -47,7 +47,6 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_picture);
 
-
         ivPreview = findViewById(R.id.ivPreview);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnRetake = findViewById(R.id.btnRetake);
@@ -70,7 +69,6 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         onLaunchCamera(ivPreview);
 
     }
-
 
     private void uploadProfileImage() {
 
