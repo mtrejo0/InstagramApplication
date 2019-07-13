@@ -23,7 +23,7 @@
             android:name=".loginActivities.signUpActivities.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HomeTimelineActivity"
+            android:name=".FragmentHandler"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

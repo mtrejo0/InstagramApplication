@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.myapplication.HomeTimelineActivity;
+import com.example.myapplication.FragmentHandler;
 import com.example.myapplication.R;
 import com.example.myapplication.loginActivities.signUpActivities.SignUpActivity;
 import com.parse.LogInCallback;
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
     private void startHomePage()
     {
         // start homepage activity
-        final Intent startHomeIntent = new Intent(LoginActivity.this, HomeTimelineActivity.class);
+        final Intent startHomeIntent = new Intent(LoginActivity.this, FragmentHandler.class);
         startActivity(startHomeIntent);
         finish();
     }

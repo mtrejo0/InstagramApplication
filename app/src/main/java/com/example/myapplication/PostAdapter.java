@@ -24,6 +24,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     Context context;
 
 
+
     public PostAdapter(List<Post> posts)
     {
         mPosts = posts;
@@ -32,14 +33,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
+        // create new view with item post xml
         context = viewGroup.getContext();
-
         LayoutInflater inflater = LayoutInflater.from(context);
-
         View postView = inflater.inflate((R.layout.item_post),viewGroup,false);
-
         ViewHolder viewHolder = new ViewHolder(postView);
-
         return viewHolder;
     }
 
@@ -52,58 +51,60 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         // fill in text views
         viewHolder.tvDescription.setText(post.getDescription());
-
         viewHolder.tvUser.setText(post.getUser().getUsername());
-
         viewHolder.tvUserTop.setText(post.getUser().getUsername());
-
         viewHolder.tvDate.setText(post.getCreatedAt().toString().substring(0,10));
 
         // gets image url from the parse object
-        String imageUrl= post.getImage().getUrl();
         Glide.with(context)
-                .load(imageUrl)
+                .load(post.getImage().getUrl())
                 .into(viewHolder.ivImage);
 
+        setPostLongClickable(viewHolder,post);
 
-        // open a new details activity if item is long clicked
-        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
+        setProfileImageClickable(viewHolder,post);
 
-                final Intent intent = new Intent(context, PostDetailsActivity.class);
+        // load in profile image to holder
+        Glide.with(context)
+                .load(post.getUser().getParseFile("profileImage").getUrl())
+                .into(viewHolder.ivProfileImage);
 
-                //pass in post that was selected
-                intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(post));
-                context.startActivity(intent);
+    }
 
-                return true;
-            }
-        });
-
+    public void setProfileImageClickable(ViewHolder viewHolder, final Post post)
+    {
+        // set profile image as clickable
         viewHolder.ivProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 ParseUser user = post.getUser();
-                final Intent intent = new Intent(context, ProfileDetailsActivity.class);
+                final Intent profileDetailsIntent = new Intent(context, ProfileDetailsActivity.class);
                 //pass in user that was selected
-                intent.putExtra("user", user.getUsername());
-                intent.putExtra(ParseUser.class.getSimpleName(), Parcels.wrap(user));
-                context.startActivity(intent);
-
+                profileDetailsIntent.putExtra("user", user.getUsername());
+                profileDetailsIntent.putExtra(ParseUser.class.getSimpleName(), Parcels.wrap(user));
+                context.startActivity(profileDetailsIntent);
 
             }
         });
+    }
 
-        Glide.with(context)
-                .load(post.getUser().getParseFile("profileImage").getUrl())
-                .into(viewHolder.ivProfileImage);
+    public void setPostLongClickable(ViewHolder viewHolder, final Post post)
+    {
+        // open a new details activity if item is long clicked
+        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
 
+                final Intent postDetailIntent = new Intent(context, PostDetailsActivity.class);
 
+                //pass in post that was selected
+                postDetailIntent.putExtra(Post.class.getSimpleName(), Parcels.wrap(post));
+                context.startActivity(postDetailIntent);
 
-
-
+                return true;
+            }
+        });
     }
 
     @Override

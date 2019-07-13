@@ -12,11 +12,7 @@ import com.example.myapplication.fragments.ComposeFragment;
 import com.example.myapplication.fragments.HomeFragment;
 import com.example.myapplication.fragments.ProfileFragment;
 
-public class HomeTimelineActivity extends AppCompatActivity {
-
-
-
-
+public class FragmentHandler extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +31,7 @@ public class HomeTimelineActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
                 switch (item.getItemId()) {
+
                     case R.id.btnProfile:
                         // switch to profile fragment
                         fragment = new ProfileFragment();
@@ -64,10 +61,8 @@ public class HomeTimelineActivity extends AppCompatActivity {
                 return true;
             }
         });
-
         // default fragment in home fragment
         bottomNavigationView.setSelectedItemId(R.id.btnHome);
-
 
     }
 
