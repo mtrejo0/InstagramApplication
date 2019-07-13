@@ -188,7 +188,7 @@ public class ProfileFragment extends Fragment {
                 {
                     for(int i = 0; i < objects.size();i++)
                     {
-                        Log.d("HomeActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
+                        Log.d("HomeTimelineActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
                         Post post = objects.get(i);
                         posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);
@@ -219,7 +219,7 @@ public class ProfileFragment extends Fragment {
                 {
                     for(int i = 0; i < objects.size();i++)
                     {
-                        Log.d("HomeActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
+                        Log.d("HomeTimelineActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
                         Post post = objects.get(i);
                         posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);

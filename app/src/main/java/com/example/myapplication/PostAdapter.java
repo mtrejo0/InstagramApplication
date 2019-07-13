@@ -71,7 +71,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             @Override
             public boolean onLongClick(View v) {
 
-                final Intent intent = new Intent(context, DetailsActivity.class);
+                final Intent intent = new Intent(context, PostDetailsActivity.class);
 
                 //pass in post that was selected
                 intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(post));

@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.myapplication.LoginActivity;
+import com.example.myapplication.loginActivities.LoginActivity;
 import com.example.myapplication.PostAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
@@ -193,7 +193,7 @@ public class HomeFragment extends Fragment {
                 {
                     for(int i = 0; i < objects.size();i++)
                     {
-                        Log.d("HomeActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
+                        Log.d("HomeTimelineActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
                         Post post = objects.get(i);
                         posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);
@@ -223,7 +223,7 @@ public class HomeFragment extends Fragment {
                 {
                     for(int i = 0; i < objects.size();i++)
                     {
-                        Log.d("HomeActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
+                        Log.d("HomeTimelineActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
                         Post post = objects.get(i);
                         posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);
