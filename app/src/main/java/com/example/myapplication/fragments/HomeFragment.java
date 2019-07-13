@@ -9,16 +9,15 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.myapplication.loginActivities.LoginActivity;
 import com.example.myapplication.PostAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
+import com.example.myapplication.loginActivities.LoginActivity;
 import com.example.myapplication.models.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -39,15 +38,10 @@ public class HomeFragment extends Fragment {
 
     int maxPosts = 20;
 
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate((R.layout.fragment_home),container,false);
-
     }
 
     @Override
@@ -55,12 +49,12 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        // defines views used in home screen
         rvPosts = view.findViewById(R.id.rvPosts);
         posts = new ArrayList<>();
         postAdapter = new PostAdapter(posts);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         rvPosts.setAdapter(postAdapter);
-
         btnLock = view.findViewById(R.id.btnLockUser);
 
         btnLock.setOnClickListener(new View.OnClickListener() {
@@ -79,27 +73,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
         // add dividers on posts
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvPosts.getContext(),
                 new LinearLayoutManager(getContext()).getOrientation());
         rvPosts.addItemDecoration(dividerItemDecoration);
 
-
         // set up swipe container on recycler view
         setUpSwipeContainer(getView());
 
         // populate timeline with top 20 posts
-        loadTopPosts(maxPosts);
-
-
+        loadTopPosts(20,false);
 
         // set up scroll listener to know when to reload posts
-        infiniteScroll();
+        setUpInfiniteScroll();
 
     }
 
-    public void infiniteScroll()
+    public void setUpInfiniteScroll()
     {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvPosts.setLayoutManager(linearLayoutManager);
@@ -107,12 +97,11 @@ public class HomeFragment extends Fragment {
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                // Triggered only when new data needs to be appended to the list
-                // Add whatever code is needed to append new items to the bottom of the list
 
+                // reload 20 more items and increase maXPosts
                 infiniteReload(maxPosts+=20);
+                // scroll to the same position you were before the reload
                 rvPosts.scrollToPosition(maxPosts-20);
-
 
             }
         };
@@ -128,13 +117,11 @@ public class HomeFragment extends Fragment {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // Your code to refresh the list here.
-                // Make sure you call swipeContainer.setRefreshing(false)
-                // once the network request has completed successfully.
-                reloadTopPosts(20);
-
+                // if swiped reload more posts
+                loadTopPosts(20,true);
             }
         });
+
         // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
@@ -145,22 +132,30 @@ public class HomeFragment extends Fragment {
     private void infiniteReload(final int maxPosts)
     {
 
+
         final Post.Query postQuery = new Post.Query();
-        postQuery.getTop(maxPosts).withUser().decendingTime();
+        // get the top maxPost items
+        postQuery.getTop(maxPosts)
+                // include the user object
+                .withUser()
+                // in chronological order
+                .decendingTime();
+
 
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
 
-
                 if(e==null)
                 {
+                    // only add the new posts at the end of the current post adapter
                     for(int i = maxPosts-20; i < objects.size();i++)
                     {
                         Post post = objects.get(i);
                         posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);
                     }
+
                     // end refresh icon
                     swipeContainer.setRefreshing(false);
                 }
@@ -174,60 +169,37 @@ public class HomeFragment extends Fragment {
     }
 
 
-
-    private void reloadTopPosts(int maxPosts)
+    private void loadTopPosts(int maxPosts, boolean refresh)
     {
 
         final Post.Query postQuery = new Post.Query();
-        postQuery.getTop(maxPosts).withUser().decendingTime();
+        // get the top maxPost items
+        postQuery.getTop(maxPosts)
+                // include the user object
+                .withUser()
+                // in chronological order
+                .decendingTime();
 
+        // if its a refresh call then clear the posts beforehand
+        if (refresh) {
+            posts.clear();
+            postAdapter.notifyDataSetChanged();
+        }
 
-        posts.clear();
-        postAdapter.notifyDataSetChanged();
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> objects, ParseException e) {
-
-
                 if(e==null)
                 {
                     for(int i = 0; i < objects.size();i++)
                     {
-                        Log.d("HomeTimelineActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
+                        // add all posts to recycler view
                         Post post = objects.get(i);
                         posts.add(post);
                         postAdapter.notifyItemInserted(posts.size()-1);
                     }
                     // end refresh icon
                     swipeContainer.setRefreshing(false);
-                }
-                else
-                {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-    }
-
-
-    private void loadTopPosts(int maxPosts)
-    {
-
-        final Post.Query postQuery = new Post.Query();
-        postQuery.getTop(maxPosts).withUser().decendingTime();
-        postQuery.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> objects, ParseException e) {
-                if(e==null)
-                {
-                    for(int i = 0; i < objects.size();i++)
-                    {
-                        Log.d("HomeTimelineActivity","Post: "+i +" "+ objects.get(i).getDescription()+" "+objects.get(i).getUser().getUsername());
-                        Post post = objects.get(i);
-                        posts.add(post);
-                        postAdapter.notifyItemInserted(posts.size()-1);
-                    }
                 }
                 else
                 {
