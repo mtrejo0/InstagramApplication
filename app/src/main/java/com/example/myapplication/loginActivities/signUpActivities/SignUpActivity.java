@@ -37,7 +37,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-
                 final String[] userValues = new String[3];
                 userValues[0] = etUsernmae.getText().toString();
                 userValues[1] = etPassword.getText().toString();

@@ -54,6 +54,7 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         btnRetake = findViewById(R.id.btnRetake);
 
+        // retake button
         btnRetake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,8 +62,7 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
             }
         });
 
-        onLaunchCamera(ivPreview);
-
+        // sign up button
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,17 +70,13 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
             }
         });
 
-
+        // get previous inputted values
         userValues = getIntent().getStringArrayExtra("userValues");
 
-
-
-
-
+        onLaunchCamera(ivPreview);
 
     }
-
-
+    
     public void signUpUser()
     {
         final ParseUser user = new ParseUser();
@@ -89,7 +85,6 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         user.setUsername(userValues[0]);
         user.setPassword(userValues[1]);
         user.setEmail(userValues[2]);
-
 
         // sign up user with inputted user pass and email
         user.signUpInBackground(new SignUpCallback() {
@@ -106,16 +101,7 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
-
-
-
     }
-
 
     private void login(String username, String password)
     {
@@ -125,8 +111,6 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
             public void done(ParseUser user, ParseException e) {
                 if (e == null) {
                     uploadProfileImage();
-
-
                 } else {
                     e.printStackTrace();
                 }
@@ -140,10 +124,9 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
 
         ParseUser userProfile = ParseUser.getCurrentUser();
 
+        // upload the picture taken to database
         ParseFile file = new ParseFile(getPhotoFileUri(photoFileName));
-
         userProfile.put("profileImage",file);
-
         userProfile.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -151,12 +134,7 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
-
-
-
-
 
     // rotates image right side up before uploading
     public Bitmap rotateBitmapOrientation(String photoFilePath) {
@@ -186,9 +164,6 @@ public class ProfilePictureCaptureActivity extends AppCompatActivity {
         // Return result
         return rotatedBitmap;
     }
-
-
-
 
     public void onLaunchCamera(View view) {
         // create Intent to take a picture and return control to the calling application
