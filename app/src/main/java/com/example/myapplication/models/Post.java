@@ -5,7 +5,6 @@ import android.os.Parcel;
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 
@@ -18,12 +17,10 @@ public class Post extends ParseObject {
     public static final String KEY_CREATED_AT = "createdAt";
 
     public String getDescription() {
-
         return getString(KEY_DESCRIPTION);
     }
 
-    public void setDescription(String description)
-    {
+    public void setDescription(String description) {
         put(KEY_DESCRIPTION,description) ;
     }
 
@@ -31,8 +28,7 @@ public class Post extends ParseObject {
         return getParseFile(KEY_IMAGE);
     }
 
-    public void setImage(ParseFile image)
-    {
+    public void setImage(ParseFile image) {
         put(KEY_IMAGE,image);
     }
 
@@ -40,8 +36,7 @@ public class Post extends ParseObject {
         return getParseUser(KEY_USER);
     }
 
-    public void setUser(ParseUser user)
-    {
+    public void setUser(ParseUser user) {
         put(KEY_USER,user);
     }
 
@@ -49,49 +44,6 @@ public class Post extends ParseObject {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
     }
-
-
-    public static class Query extends ParseQuery<Post>{
-
-        public Query(){
-            super(Post.class);
-        }
-
-        public Query getTop(int maxPosts)
-        {
-            setLimit(maxPosts);
-            return this;
-        }
-
-        // makes sure the user json is also included in the response
-        public Query withUser()
-        {
-            include("user");
-            return this;
-        }
-
-        // gets the order of elements in decending order by time
-        public Query decendingTime()
-        {
-            addDescendingOrder(KEY_CREATED_AT);
-            return this;
-        }
-
-        public Query onlyCurrentUser()
-        {
-            whereEqualTo(Post.KEY_USER,ParseUser.getCurrentUser());
-            return this;
-        }
-
-        public Query onlyUser(ParseUser user)
-        {
-            whereEqualTo(Post.KEY_USER,user);
-            return this;
-        }
-
-
-    }
-
 
 
 }

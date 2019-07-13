@@ -19,6 +19,7 @@ import com.example.myapplication.PostAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
 import com.example.myapplication.models.Post;
+import com.example.myapplication.models.Query;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -126,13 +127,14 @@ public class ProfileFragment extends Fragment {
     {
 
 
-        final Post.Query postQuery = new Post.Query();
+        final Query postQuery = new Query();
         // get the top maxPost items
         postQuery.getTop(maxPosts)
                 // include the user object
                 .withUser()
                 // in chronological order
-                .decendingTime();
+                .decendingTime()
+                .onlyCurrentUser();;
 
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
@@ -163,13 +165,14 @@ public class ProfileFragment extends Fragment {
     private void loadTopPosts(int maxPosts, boolean refresh)
     {
 
-        final Post.Query postQuery = new Post.Query();
+        final Query postQuery = new Query();
         // get the top maxPost items
         postQuery.getTop(maxPosts)
                 // include the user object
                 .withUser()
                 // in chronological order
-                .decendingTime();
+                .decendingTime()
+                .onlyCurrentUser();
 
         // if its a refresh call then clear the posts beforehand
         if (refresh) {

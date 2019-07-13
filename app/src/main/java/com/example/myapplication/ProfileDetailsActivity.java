@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
 import com.example.myapplication.models.Post;
+import com.example.myapplication.models.Query;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -80,7 +81,7 @@ public class ProfileDetailsActivity extends AppCompatActivity {
     private void loadAllUserPosts(ParseUser user)
     {
 
-        final Post.Query postQuery = new Post.Query();
+        final Query postQuery = new Query();
         postQuery.withUser().decendingTime().onlyUser(user);
 
         postQuery.findInBackground(new FindCallback<Post>() {

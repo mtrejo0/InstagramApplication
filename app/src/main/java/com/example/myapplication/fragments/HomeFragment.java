@@ -19,6 +19,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.importedFiles.EndlessRecyclerViewScrollListener;
 import com.example.myapplication.loginActivities.LoginActivity;
 import com.example.myapplication.models.Post;
+import com.example.myapplication.models.Query;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -133,7 +134,7 @@ public class HomeFragment extends Fragment {
     {
 
 
-        final Post.Query postQuery = new Post.Query();
+        final Query postQuery = new Query();
         // get the top maxPost items
         postQuery.getTop(maxPosts)
                 // include the user object
@@ -172,7 +173,7 @@ public class HomeFragment extends Fragment {
     private void loadTopPosts(int maxPosts, boolean refresh)
     {
 
-        final Post.Query postQuery = new Post.Query();
+        final Query postQuery = new Query();
         // get the top maxPost items
         postQuery.getTop(maxPosts)
                 // include the user object
