@@ -51,8 +51,6 @@ public class ProfileDetailsActivity extends AppCompatActivity {
         rvPosts.setLayoutManager(new LinearLayoutManager(this));
         rvPosts.setAdapter(postAdapter);
 
-
-
         // add dividers on posts
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvPosts.getContext(),
                 new LinearLayoutManager(this).getOrientation());
@@ -64,13 +62,12 @@ public class ProfileDetailsActivity extends AppCompatActivity {
         tvUsername = findViewById(R.id.tvUsername);
         tvUsername.setText(targetUser.getUsername());
 
-        // populate timeline with top 20 posts
+
         loadAllUserPosts(targetUser);
 
-
+        // load profile image into holder
         ivProfileImage = findViewById(R.id.ivProfileImage);
         String photoUrl = targetUser.getParseFile("profileImage").getUrl();
-
         Glide.with(this)
                 .load(photoUrl)
                 .into(ivProfileImage);
@@ -81,6 +78,7 @@ public class ProfileDetailsActivity extends AppCompatActivity {
     private void loadAllUserPosts(ParseUser user)
     {
 
+        // get all the targets users posts to display
         final Query postQuery = new Query();
         postQuery.withUser().decendingTime().onlyUser(user);
 
