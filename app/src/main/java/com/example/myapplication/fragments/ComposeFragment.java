@@ -59,7 +59,6 @@ public class ComposeFragment extends Fragment {
     }
 
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -144,7 +143,7 @@ public class ComposeFragment extends Fragment {
 
 
     private void createPost(String description, ParseFile imageFile, ParseUser user) {
-        // create a post
+        // creates a post
         final Post newPost = new Post();
         newPost.setDescription(description);
         newPost.setImage(imageFile);
@@ -207,6 +206,7 @@ public class ComposeFragment extends Fragment {
         return file;
     }
 
+    // what happens when camera finishes taking a picture
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
