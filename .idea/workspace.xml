@@ -21,7 +21,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ProfileFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,14 +52,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/HomeFragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ProfileFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="155" column="71" selection-start-line="155" selection-start-column="71" selection-end-line="155" selection-end-column="71" />
+            <state relative-caret-position="1133">
+              <caret line="138" column="68" selection-start-line="138" selection-start-column="68" selection-end-line="138" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7296#8022#0" expanded="true" />
-                <element signature="e#8021#8022#0" expanded="true" />
+                <element signature="e#4848#5613#0" expanded="true" />
+                <element signature="e#5612#5613#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/HomeFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="209" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,10 +151,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/DetailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ProfileFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_post.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ComposeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ProfileFragment.java" />
       </list>
     </option>
   </component>
@@ -327,10 +339,10 @@
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Resources Explorer" order="6" weight="0.32844934" />
-      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.17032968" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.17032968" />
       <window_info id="Captures" order="8" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="0" weight="0.23061225" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="1" sideWeight="0.4993895" visible="true" weight="0.15510204" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993895" visible="true" weight="0.15510204" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32959184" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27653062" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993895" weight="0.32959184" />
@@ -731,16 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ProfileFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml">
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
@@ -772,12 +774,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/HomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="155" column="71" selection-start-line="155" selection-start-column="71" selection-end-line="155" selection-end-column="71" />
+        <state relative-caret-position="261">
+          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="209" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7296#8022#0" expanded="true" />
-            <element signature="e#8021#8022#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragments/ProfileFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1133">
+          <caret line="138" column="68" selection-start-line="138" selection-start-column="68" selection-end-line="138" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4848#5613#0" expanded="true" />
+            <element signature="e#5612#5613#0" expanded="true" />
           </folding>
         </state>
       </provider>
