@@ -50,12 +50,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(i);
+                final Intent startSignUpIntent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(startSignUpIntent);
             }
         });
 
-        persistUser();
+        persistUserIfExists();
 
         startColorAnimation();
     }
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         animationDrawable.start();
     }
 
-    private void persistUser()
+    private void persistUserIfExists()
     {
         // if there is already a user logged in go to home page
         ParseUser currentUser = ParseUser.getCurrentUser();
@@ -86,8 +86,8 @@ public class LoginActivity extends AppCompatActivity {
     private void startHomePage()
     {
         // start homepage activity
-        final Intent i = new Intent(LoginActivity.this, HomeTimelineActivity.class);
-        startActivity(i);
+        final Intent startHomeIntent = new Intent(LoginActivity.this, HomeTimelineActivity.class);
+        startActivity(startHomeIntent);
         finish();
     }
 
