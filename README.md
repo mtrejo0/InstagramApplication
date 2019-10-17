@@ -1,6 +1,6 @@
-# Project 3 - FBUInstagram
+# Project 3 - InstagramApplication
 
-FBUInstagram is a photo sharing app using Parse as its backend.
+InstagramApplication a mobile application I developed to have most of the features of the real Instagram. This app allows users to make accounts and post pictures with captions for other people on the application to see. Users can view posts on a recycler view that has a pull down to refresh feature. I used the Heroku service with parse as a backend to store user accounts, pictures, and data. Users can take pictures in real time to post to this application
 
 Time spent: 20 hours spent in total
 
